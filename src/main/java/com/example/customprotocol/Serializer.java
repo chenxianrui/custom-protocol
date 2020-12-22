@@ -8,7 +8,7 @@ package com.example.customprotocol;
 public interface Serializer {
 
     /**
-     * 序列化.
+     * 序列化
      *
      * @param obj 要序列化的对象
      * @return 字节数组
