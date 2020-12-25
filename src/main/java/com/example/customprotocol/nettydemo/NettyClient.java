@@ -23,7 +23,7 @@ public class NettyClient {
 
     public void start() {
         RpcRequest rpcRequest = new RpcRequest().builder()
-                .requestId("chen").group("chen").interfaceName("chen").methodName("chen").build();
+                .group("test2").interfaceName("iiiii").build();
         RpcMessage rpcMessage = new RpcMessage();
         rpcMessage.setData(rpcRequest);
         rpcMessage.setCodec(SerializationTypeEnum.KYRO.getCode());
@@ -34,7 +34,7 @@ public class NettyClient {
         Bootstrap bootstrap = new Bootstrap()
                 .group(group)
                 //该参数的作用就是禁止使用Nagle算法，使用于小数据即时传输
-                .option(ChannelOption.TCP_NODELAY, true)
+                .option(ChannelOption.TCP_NODELAY, false)
                 .channel(NioSocketChannel.class)
                 .handler(new NettyClientInitializer());
 

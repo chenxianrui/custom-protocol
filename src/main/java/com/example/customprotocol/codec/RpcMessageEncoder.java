@@ -1,6 +1,6 @@
 package com.example.customprotocol.codec;
 
-import com.example.customprotocol.Serializer;
+import com.example.customprotocol.serialize.Serializer;
 import com.example.customprotocol.compress.Compress;
 import com.example.customprotocol.constants.RpcConstants;
 import com.example.customprotocol.dto.RpcMessage;
@@ -60,7 +60,6 @@ public class RpcMessageEncoder extends MessageToByteEncoder<RpcMessage> {
             if (messageType != RpcConstants.HEARTBEAT_REQUEST_TYPE
                     && messageType != RpcConstants.HEARTBEAT_RESPONSE_TYPE){
                 // 序列化对象
-                System.out.println(rpcMessage.getCodec());
                 String codecName = SerializationTypeEnum.getName(rpcMessage.getCodec());
                 Serializer serializer = ExtensionLoader.getExtensionLoader(Serializer.class)
                         .getExtension(codecName);
@@ -72,7 +71,6 @@ public class RpcMessageEncoder extends MessageToByteEncoder<RpcMessage> {
                 bodyBytes = compress.compress(bodyBytes);
                 fullLength += bodyBytes.length;
             }
-
             if (bodyBytes != null){
                 out.writeBytes(bodyBytes);  // 写入消息体
             }

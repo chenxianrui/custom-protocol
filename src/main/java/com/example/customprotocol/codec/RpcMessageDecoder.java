@@ -1,6 +1,6 @@
 package com.example.customprotocol.codec;
 
-import com.example.customprotocol.Serializer;
+import com.example.customprotocol.serialize.Serializer;
 import com.example.customprotocol.compress.Compress;
 import com.example.customprotocol.constants.RpcConstants;
 import com.example.customprotocol.dto.RpcMessage;

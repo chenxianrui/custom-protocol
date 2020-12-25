@@ -1,4 +1,6 @@
-package com.example.customprotocol;
+package com.example.customprotocol.serialize;
+
+import com.example.customprotocol.SPI;
 
 /**
  * @Author cxr
